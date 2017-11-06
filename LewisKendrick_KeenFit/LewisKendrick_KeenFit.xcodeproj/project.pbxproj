@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B2383C888A9BBE75FAD2986 /* Pods_LewisKendrick_KeenFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB07CC23AF0B88E436ED142 /* Pods_LewisKendrick_KeenFit.framework */; };
 		184590101FA310E600594932 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845900F1FA310E600594932 /* AppDelegate.swift */; };
 		184590121FA310E600594932 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184590111FA310E600594932 /* LoginScreen.swift */; };
 		184590151FA310E600594932 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184590131FA310E600594932 /* Main.storyboard */; };
@@ -22,6 +23,10 @@
 		184590161FA310E600594932 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		184590191FA310E600594932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1845901B1FA310E600594932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		184AFDF81FADED8500B621F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		50B9E4CAF55031FB83F55448 /* Pods-LewisKendrick_KeenFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LewisKendrick_KeenFit.release.xcconfig"; path = "Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit.release.xcconfig"; sourceTree = "<group>"; };
+		5EB07CC23AF0B88E436ED142 /* Pods_LewisKendrick_KeenFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LewisKendrick_KeenFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0DBACFCB6EA0DBA4C85FF09 /* Pods-LewisKendrick_KeenFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LewisKendrick_KeenFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B2383C888A9BBE75FAD2986 /* Pods_LewisKendrick_KeenFit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,8 @@
 			children = (
 				1845900E1FA310E600594932 /* LewisKendrick_KeenFit */,
 				1845900D1FA310E600594932 /* Products */,
+				6177EB012422711781D28F48 /* Pods */,
+				442FD7334E7EBEC5F8EA4AA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +68,26 @@
 				184590161FA310E600594932 /* Assets.xcassets */,
 				184590181FA310E600594932 /* LaunchScreen.storyboard */,
 				1845901B1FA310E600594932 /* Info.plist */,
+				184AFDF81FADED8500B621F4 /* GoogleService-Info.plist */,
 			);
 			path = LewisKendrick_KeenFit;
+			sourceTree = "<group>";
+		};
+		442FD7334E7EBEC5F8EA4AA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5EB07CC23AF0B88E436ED142 /* Pods_LewisKendrick_KeenFit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6177EB012422711781D28F48 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0DBACFCB6EA0DBA4C85FF09 /* Pods-LewisKendrick_KeenFit.debug.xcconfig */,
+				50B9E4CAF55031FB83F55448 /* Pods-LewisKendrick_KeenFit.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +97,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1845901E1FA310E600594932 /* Build configuration list for PBXNativeTarget "LewisKendrick_KeenFit" */;
 			buildPhases = (
+				497D485645637F1475A220D2 /* [CP] Check Pods Manifest.lock */,
 				184590081FA310E600594932 /* Sources */,
 				184590091FA310E600594932 /* Frameworks */,
 				1845900A1FA310E600594932 /* Resources */,
+				52E7BC7ADB56FC3C0A42FD5F /* [CP] Embed Pods Frameworks */,
+				DBEB694622AC5A1644AB269F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +159,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		497D485645637F1475A220D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LewisKendrick_KeenFit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52E7BC7ADB56FC3C0A42FD5F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBEB694622AC5A1644AB269F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		184590081FA310E600594932 /* Sources */ = {
@@ -272,6 +357,7 @@
 		};
 		1845901F1FA310E600594932 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0DBACFCB6EA0DBA4C85FF09 /* Pods-LewisKendrick_KeenFit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +373,7 @@
 		};
 		184590201FA310E600594932 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50B9E4CAF55031FB83F55448 /* Pods-LewisKendrick_KeenFit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

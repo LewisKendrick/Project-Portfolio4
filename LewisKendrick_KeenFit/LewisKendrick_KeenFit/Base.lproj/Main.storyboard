@@ -1128,7 +1128,7 @@
                             <searchBar contentMode="redraw" placeholder="Enter Food Name" translatesAutoresizingMaskIntoConstraints="NO" id="Idf-lZ-VFe">
                                 <rect key="frame" x="0.0" y="120" width="375" height="56"/>
                                 <color key="backgroundColor" red="0.69237959380000003" green="0.2473838028" blue="0.66356444989999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="barTintColor" red="0.65416485071182251" green="0.46319425106048584" blue="0.73204076290130615" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.68795853853225708" green="0.51469820737838745" blue="0.75659781694412231" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="49L-Sg-djL">
