@@ -44,6 +44,21 @@ class MainScreenController: UIViewController {
             self.currentPerson.weeklyAverage = value?["average_weekly"] as? Double ?? 0.0
             self.currentPerson.biWeeklyAverage = value?["average_biWeekly"] as? Double ?? 0.0
             self.currentPerson.currentCalories = value?["currentCalories"] as? Double ?? 0.0
+            
+            //I have to now set a way for me to grab the information inside of goals
+            var userGoals = Goal()
+            let goalsNode = value?["goals"] as? NSDictionary
+            userGoals.total_Calories = goalsNode?["total_calories"] as? Double ?? 0.0
+            userGoals.total_Carbs = goalsNode?["total_carbs"] as? Double ?? 0.0
+            userGoals.total_Cholesterol = goalsNode?["total_cholesterol"] as? Double ?? 0.0
+            userGoals.total_Dietary = goalsNode?["total_dietary"] as? Double ?? 0.0
+            userGoals.total_Fat = goalsNode?["total_fat"] as? Double ?? 0.0
+            userGoals.total_Protein = goalsNode?["total_protein"] as? Double ?? 0.0
+            userGoals.total_SaturatedFat = goalsNode?["total_saturatedfat"] as? Double ?? 0.0
+            userGoals.total_Sodium = goalsNode?["total_sodium"] as? Double ?? 0.0
+            userGoals.total_Sugars = goalsNode?["total_sugars"] as? Double ?? 0.0
+            
+            self.currentPerson.goal = userGoals
             //let user = User(username: username)
             self.FillSummary()
             // ...
@@ -65,6 +80,7 @@ class MainScreenController: UIViewController {
      _title.text = "Welcome " + currentPerson.name
      _profileICON.image = UIImage(named: "\(currentPerson.iconID)")
      _currentCalories.text = String(currentPerson.currentCalories)
+        _goalTotal.text = "\(currentPerson.goal.total_Calories!)" //force unwrap to get right of the optional word
      _currentMeals.text = String("nothing")
      _dailyAverage.text = String(currentPerson.dailyAverage)
      _weeklyAverage.text = String(currentPerson.weeklyAverage)
