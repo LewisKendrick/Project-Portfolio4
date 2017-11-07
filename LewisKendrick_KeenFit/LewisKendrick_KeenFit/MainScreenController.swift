@@ -59,7 +59,10 @@ class MainScreenController: UIViewController {
             userGoals.total_Sugars = goalsNode?["total_sugars"] as? Double ?? 0.0
             
             self.currentPerson.goal = userGoals
-            //let user = User(username: username)
+            
+            //at this point I need to check if the user has any meals logged in
+            //so I redo the last view steps inside of a method
+            
             self.FillSummary()
             // ...
         }) { (error) in
@@ -80,13 +83,43 @@ class MainScreenController: UIViewController {
      _title.text = "Welcome " + currentPerson.name
      _profileICON.image = UIImage(named: "\(currentPerson.iconID)")
      _currentCalories.text = String(currentPerson.currentCalories)
-        _goalTotal.text = "\(currentPerson.goal.total_Calories!)" //force unwrap to get right of the optional word
+     _goalTotal.text = "\(currentPerson.goal.total_Calories!)" //force unwrap to get right of the optional word
      _currentMeals.text = String("nothing")
      _dailyAverage.text = String(currentPerson.dailyAverage)
      _weeklyAverage.text = String(currentPerson.weeklyAverage)
      _biWeeklyAverage.text = String(currentPerson.biWeeklyAverage)
     }
     
+    func FillMeals()
+    {
+        var newMeal = Meals()
+        
+        ref = Database.database().reference().child("Meals") //setting my reference to start inside of my users node
+        ref.child(g_UserID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            print(snapshot.value)
+            // Get user value and set it to the currentPerson object that i have set
+            let value = snapshot.value as? NSDictionary
+            newMeal.id = value?["id"] as? String ?? ""
+            newMeal.calories = value?["calories"] as? Double ?? 0.0
+            newMeal.carbs = value?["carbs"] as? Double ?? 0.0
+            newMeal.cholesterol = value?["cholesterol"] as? Double ?? 0.0
+            newMeal.dietary = value?["dietary"] as? Double ?? 0.0
+            newMeal.fat = value?["fat"] as? Double ?? 0.0
+            newMeal.protein = value?["protein"] as? Double ?? 0.0
+            newMeal.saturatedFat = value?["saturatedFat"] as? Double ?? 0.0
+            newMeal.sodium = value?["sodium"] as? Double ?? 0.0
+            newMeal.sugars = value?["sugars"] as? Double ?? 0.0
+            newMeal.servings = value?["servings"] as? Double ?? 0.0
+            newMeal.date = value?["date"] as? Date ?? Date()
+            
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+
+    }
 
     /*
     // MARK: - Navigation

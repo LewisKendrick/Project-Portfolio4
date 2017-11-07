@@ -456,6 +456,12 @@
                                     <constraint firstAttribute="bottom" secondItem="gIu-6m-bCi" secondAttribute="bottom" constant="5" id="woK-I1-wge"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OnS-nK-gL6">
+                                <rect key="frame" x="11" y="392" width="109" height="100"/>
+                                <connections>
+                                    <segue destination="roq-bP-3y4" kind="show" identifier="toAddFoodOne" id="Wnk-Kx-22P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.78494507074356079" green="0.78554660081863403" blue="0.78503817319869995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -470,13 +476,16 @@
                             <constraint firstItem="Ooq-1v-774" firstAttribute="height" secondItem="BRR-aS-owL" secondAttribute="height" id="8Mt-8K-hLl"/>
                             <constraint firstItem="63P-Ly-tF2" firstAttribute="top" secondItem="Gga-4o-g1N" secondAttribute="bottom" constant="5" id="A2Q-G3-Tcc"/>
                             <constraint firstItem="5Rk-Ub-bo0" firstAttribute="top" secondItem="63P-Ly-tF2" secondAttribute="bottom" constant="5" id="DOY-aI-938"/>
+                            <constraint firstItem="OnS-nK-gL6" firstAttribute="width" secondItem="0YG-XL-ZJx" secondAttribute="width" id="Dha-bl-Fwy"/>
                             <constraint firstItem="yjP-YW-FcO" firstAttribute="centerY" secondItem="2H9-2X-vqx" secondAttribute="centerY" id="Irj-hG-r08"/>
                             <constraint firstItem="Gga-4o-g1N" firstAttribute="height" secondItem="qeV-PW-2TL" secondAttribute="height" multiplier="0.15" id="N8p-VC-fal"/>
+                            <constraint firstItem="OnS-nK-gL6" firstAttribute="height" secondItem="0YG-XL-ZJx" secondAttribute="height" id="RhC-jB-pgO"/>
                             <constraint firstItem="Gga-4o-g1N" firstAttribute="leading" secondItem="iR6-ID-fD7" secondAttribute="leading" id="Rr2-kK-Vkk"/>
                             <constraint firstItem="BRR-aS-owL" firstAttribute="leading" secondItem="yjP-YW-FcO" secondAttribute="trailing" constant="4.5" id="XEF-FE-KWr"/>
                             <constraint firstItem="2H9-2X-vqx" firstAttribute="height" secondItem="5Rk-Ub-bo0" secondAttribute="height" id="ao3-d7-3Lg"/>
                             <constraint firstItem="5Rk-Ub-bo0" firstAttribute="height" secondItem="qeV-PW-2TL" secondAttribute="height" multiplier="0.2" id="cGv-fK-Paa"/>
                             <constraint firstItem="Ooq-1v-774" firstAttribute="centerY" secondItem="BRR-aS-owL" secondAttribute="centerY" id="d6l-qZ-DAE"/>
+                            <constraint firstItem="OnS-nK-gL6" firstAttribute="centerX" secondItem="0YG-XL-ZJx" secondAttribute="centerX" id="eEh-Yv-xTp"/>
                             <constraint firstItem="BRR-aS-owL" firstAttribute="height" secondItem="yjP-YW-FcO" secondAttribute="height" id="eZ3-mj-rrx"/>
                             <constraint firstItem="2H9-2X-vqx" firstAttribute="top" secondItem="5Rk-Ub-bo0" secondAttribute="bottom" constant="5" id="fC7-jj-slp"/>
                             <constraint firstItem="yjP-YW-FcO" firstAttribute="height" secondItem="2H9-2X-vqx" secondAttribute="height" id="fl6-xx-xFd"/>
@@ -484,6 +493,7 @@
                             <constraint firstItem="Gga-4o-g1N" firstAttribute="top" secondItem="iR6-ID-fD7" secondAttribute="top" id="iLr-hf-Fpw"/>
                             <constraint firstItem="Gga-4o-g1N" firstAttribute="trailing" secondItem="iR6-ID-fD7" secondAttribute="trailing" id="ifH-2l-0ud"/>
                             <constraint firstItem="BRR-aS-owL" firstAttribute="width" secondItem="yjP-YW-FcO" secondAttribute="width" id="ihg-Wu-GDM"/>
+                            <constraint firstItem="OnS-nK-gL6" firstAttribute="centerY" secondItem="0YG-XL-ZJx" secondAttribute="centerY" id="loX-zn-Ean"/>
                             <constraint firstItem="Ooq-1v-774" firstAttribute="leading" secondItem="BRR-aS-owL" secondAttribute="trailing" constant="4.5" id="mF1-XG-Tyc"/>
                             <constraint firstItem="iR6-ID-fD7" firstAttribute="trailing" secondItem="63P-Ly-tF2" secondAttribute="trailing" constant="5" id="wwf-Rs-FCp"/>
                             <constraint firstItem="BRR-aS-owL" firstAttribute="centerY" secondItem="yjP-YW-FcO" secondAttribute="centerY" id="yTW-KG-VrT"/>
@@ -503,7 +513,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUe-3A-8ra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="343" y="1052"/>
+            <point key="canvasLocation" x="343" y="1127"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="45m-h1-Lc5">
@@ -591,7 +601,7 @@
         <!--Add Food Search-->
         <scene sceneID="hkG-Hk-1IF">
             <objects>
-                <viewController id="roq-bP-3y4" userLabel="Add Food Search" sceneMemberID="viewController">
+                <viewController id="roq-bP-3y4" userLabel="Add Food Search" customClass="AddFoodFirstController" customModule="LewisKendrick_KeenFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="POv-xb-Rp4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -695,7 +705,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gbz-FS-rfE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1338" y="2041"/>
+            <point key="canvasLocation" x="-1015" y="1316"/>
         </scene>
         <!--Entries-->
         <scene sceneID="6VE-73-F5P">
@@ -2202,7 +2212,7 @@
         <!--Add Food Display-->
         <scene sceneID="vfF-dl-1eo">
             <objects>
-                <viewController id="lA6-bI-I0B" userLabel="Add Food Display" sceneMemberID="viewController">
+                <viewController id="lA6-bI-I0B" userLabel="Add Food Display" customClass="AddFoodSecondController" customModule="LewisKendrick_KeenFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wD6-NO-C8c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2496,7 +2506,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nL5-On-jDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1338.4000000000001" y="2865.5172413793107"/>
+            <point key="canvasLocation" x="-1338" y="2127"/>
         </scene>
         <!--Add Friend-->
         <scene sceneID="jbL-wt-gmZ">
