@@ -6,7 +6,8 @@ target 'LewisKendrick_KeenFit' do
 
   # Pods for LewisKendrick_KeenFit
 
-pod ‘Firebase/Core’
+pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'Firebase/Auth'
 
 end

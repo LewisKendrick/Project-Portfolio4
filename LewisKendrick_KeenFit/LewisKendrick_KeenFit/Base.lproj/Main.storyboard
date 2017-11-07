@@ -79,7 +79,8 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="SignUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x7F-Fz-kxG"/>
+                                    <action selector="SignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhh-6x-kF8"/>
+                                    <action selector="SignUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i06-P5-oz3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not a member?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hv-nc-4x4">
@@ -136,7 +137,7 @@
         <!--MainScreen-->
         <scene sceneID="NEV-Rh-MIE">
             <objects>
-                <viewController id="0hP-Ig-A6g" userLabel="MainScreen" sceneMemberID="viewController">
+                <viewController id="0hP-Ig-A6g" userLabel="MainScreen" customClass="MainScreenController" customModule="LewisKendrick_KeenFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qeV-PW-2TL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -489,6 +490,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iR6-ID-fD7"/>
                     </view>
+                    <connections>
+                        <outlet property="_biWeeklyAverage" destination="Kpc-TA-mY0" id="GfL-GP-gMb"/>
+                        <outlet property="_currentCalories" destination="gSi-vI-hZM" id="tsg-PA-ent"/>
+                        <outlet property="_currentMeals" destination="QcK-uJ-vOq" id="v24-wx-sLa"/>
+                        <outlet property="_dailyAverage" destination="JNa-Ul-zoO" id="Te7-Yw-FYN"/>
+                        <outlet property="_goalTotal" destination="2XY-wt-z0x" id="10L-cI-t4e"/>
+                        <outlet property="_profileICON" destination="GvM-dG-q9x" id="oF6-7Q-Vlf"/>
+                        <outlet property="_title" destination="r0o-uF-MFO" id="FuE-By-kB2"/>
+                        <outlet property="_weeklyAverage" destination="kCE-8h-4Io" id="kR0-Fy-vsS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUe-3A-8ra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

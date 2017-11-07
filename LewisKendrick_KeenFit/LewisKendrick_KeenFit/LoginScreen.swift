@@ -10,14 +10,17 @@
 
 import UIKit
 import Firebase
-import FirebaseDatabase
+
+var g_UserID:String? //using a global uid to help me search through my database
 
 class LoginScreenContoller: UIViewController {
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-    
+ 
     var ref: DatabaseReference!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +36,37 @@ class LoginScreenContoller: UIViewController {
     
     @IBAction func SignInButton(_ sender: Any)
     {
-      
+        Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
+            //if user isnt nil then the person is found and i will go to mainpage
+            if let u = user
+            {
+                g_UserID = u.uid
+                
+                
+                self.performSegue(withIdentifier: "toMainScreen", sender: self)
+            }
+            else
+            {
+                //check errr and show message            }
+            }
+        }
     }
     
     @IBAction func SignUpButton(_ sender: Any)
     {
-        
+        Auth.auth().createUser(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
+            
+            if let u = user
+            {
+                g_UserID = u.uid
+                //user is found go to login screen
+                self.performSegue(withIdentifier: "toMainScreen", sender: self)
+            }
+            else
+            {
+                //show error message
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -48,4 +76,5 @@ class LoginScreenContoller: UIViewController {
 
 
 }
+
 

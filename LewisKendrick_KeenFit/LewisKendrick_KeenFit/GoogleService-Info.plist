@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>957211648159-sqgcrubbd63obn2leufn1qijl5fvhtf7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.957211648159-sqgcrubbd63obn2leufn1qijl5fvhtf7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDbVAVV26Wkz7oDMoySqJsAAoo-X3Ou_eE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>957211648159</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>comm-classnotes.LewisKendrick-KeenFit</string>
+	<key>PROJECT_ID</key>
+	<string>keenfit0800</string>
+	<key>STORAGE_BUCKET</key>
+	<string>keenfit0800.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:957211648159:ios:9f7b59af011ec1a4</string>
+	<key>DATABASE_URL</key>
+	<string>https://keenfit0800.firebaseio.com</string>
+</dict>
+</plist>
