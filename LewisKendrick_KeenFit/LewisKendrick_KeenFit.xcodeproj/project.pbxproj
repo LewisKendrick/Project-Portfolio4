@@ -23,7 +23,7 @@
 		184590161FA310E600594932 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		184590191FA310E600594932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1845901B1FA310E600594932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		184AFDF81FADED8500B621F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		184AFE021FB172F900B621F4 /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 		50B9E4CAF55031FB83F55448 /* Pods-LewisKendrick_KeenFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LewisKendrick_KeenFit.release.xcconfig"; path = "Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit.release.xcconfig"; sourceTree = "<group>"; };
 		5EB07CC23AF0B88E436ED142 /* Pods_LewisKendrick_KeenFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LewisKendrick_KeenFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0DBACFCB6EA0DBA4C85FF09 /* Pods-LewisKendrick_KeenFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LewisKendrick_KeenFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 				184590161FA310E600594932 /* Assets.xcassets */,
 				184590181FA310E600594932 /* LaunchScreen.storyboard */,
 				1845901B1FA310E600594932 /* Info.plist */,
-				184AFDF81FADED8500B621F4 /* GoogleService-Info.plist */,
+				184AFE021FB172F900B621F4 /* GoogleService-Info (1).plist */,
 			);
 			path = LewisKendrick_KeenFit;
 			sourceTree = "<group>";
@@ -187,11 +187,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
