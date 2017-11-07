@@ -21,6 +21,7 @@ class Person
     var dailyAverage: Double
     var weeklyAverage: Double
     var biWeeklyAverage: Double
+    var currentCalories: Double
     
     init()
     {
@@ -34,9 +35,10 @@ class Person
         dailyAverage = 0.0
         weeklyAverage = 0.0
         biWeeklyAverage = 0.0
+        currentCalories = 0
     }
     
-    init(iUserID: String, iIconID: Int, iName: String, iGroupName: String, iWeight: Double, iBirthday: Date?, iGoal:Goal, iDailyAverage: Double, iWeeklyAverage: Double, iBiWeeklyAverage: Double)
+    init(iUserID: String, iIconID: Int, iName: String, iGroupName: String, iWeight: Double, iBirthday: Date?, iGoal:Goal, iDailyAverage: Double, iWeeklyAverage: Double, iBiWeeklyAverage: Double, iCurrentCalories: Double)
     {
         userID = iUserID
         iconID = iIconID
@@ -48,6 +50,7 @@ class Person
         dailyAverage = iDailyAverage
         weeklyAverage = iWeeklyAverage
         biWeeklyAverage = iBiWeeklyAverage
+        currentCalories = iCurrentCalories
     }
     
     

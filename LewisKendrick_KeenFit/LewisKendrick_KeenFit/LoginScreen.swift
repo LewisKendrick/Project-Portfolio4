@@ -42,7 +42,6 @@ class LoginScreenContoller: UIViewController {
             {
                 g_UserID = u.uid
                 
-                
                 self.performSegue(withIdentifier: "toMainScreen", sender: self)
             }
             else

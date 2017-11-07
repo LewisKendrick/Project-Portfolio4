@@ -152,8 +152,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0o-uF-MFO">
-                                        <rect key="frame" x="94" y="69" width="187.5" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="113" y="66" width="225" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -165,13 +165,13 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="GvM-dG-q9x" secondAttribute="bottom" constant="5" id="FbY-ZB-1Nd"/>
                                     <constraint firstItem="GvM-dG-q9x" firstAttribute="width" secondItem="Gga-4o-g1N" secondAttribute="width" multiplier="0.25" id="H4c-mu-MsW"/>
-                                    <constraint firstItem="r0o-uF-MFO" firstAttribute="width" secondItem="Gga-4o-g1N" secondAttribute="width" multiplier="0.5" id="HRl-33-XDC"/>
+                                    <constraint firstItem="r0o-uF-MFO" firstAttribute="width" secondItem="Gga-4o-g1N" secondAttribute="width" multiplier="0.6" id="HRl-33-XDC"/>
                                     <constraint firstAttribute="bottom" secondItem="r0o-uF-MFO" secondAttribute="bottom" constant="10" id="Kkd-KR-hXM"/>
                                     <constraint firstItem="XF8-Az-YuO" firstAttribute="top" secondItem="Gga-4o-g1N" secondAttribute="top" constant="5" id="aBZ-s0-AbK"/>
                                     <constraint firstItem="XF8-Az-YuO" firstAttribute="centerX" secondItem="Gga-4o-g1N" secondAttribute="centerX" id="abY-d1-b9p"/>
                                     <constraint firstItem="GvM-dG-q9x" firstAttribute="top" secondItem="Gga-4o-g1N" secondAttribute="top" constant="5" id="bai-9f-P24"/>
                                     <constraint firstItem="GvM-dG-q9x" firstAttribute="leading" secondItem="Gga-4o-g1N" secondAttribute="leading" constant="5" id="fkf-66-YUg"/>
-                                    <constraint firstItem="r0o-uF-MFO" firstAttribute="centerX" secondItem="Gga-4o-g1N" secondAttribute="centerX" id="yGx-43-Xd2"/>
+                                    <constraint firstItem="r0o-uF-MFO" firstAttribute="centerX" secondItem="Gga-4o-g1N" secondAttribute="centerX" multiplier="1.2" id="yGx-43-Xd2"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Rk-Ub-bo0">

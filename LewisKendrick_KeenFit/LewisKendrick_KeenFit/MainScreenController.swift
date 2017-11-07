@@ -29,13 +29,29 @@ class MainScreenController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        ref = Database.database().reference()
-        
-        //retreive my post and listen for changes
-      /*  DatabaseHandle = ref.child("Users").child(g_UserID).observe(DataEventType.value, with: { (snapshot) in
-            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+        ref = Database.database().reference().child("Users") //setting my reference to start inside of my users node
+        ref.child(g_UserID!).observeSingleEvent(of: .value, with: { (snapshot) in
             
-        }) */
+            print(snapshot.value)
+            // Get user value and set it to the currentPerson object that i have set
+            let value = snapshot.value as? NSDictionary
+            self.currentPerson.userID = g_UserID!
+            self.currentPerson.name = value?["name"] as? String ?? ""
+            self.currentPerson.iconID = value?["id_picture"] as? Int ?? 0
+            self.currentPerson.groupName = value?["g_name"] as? String ?? ""
+            self.currentPerson.weight = value?["weight"] as? Double ?? 0.0
+            self.currentPerson.dailyAverage = value?["average_daily"] as? Double ?? 0.0
+            self.currentPerson.weeklyAverage = value?["average_weekly"] as? Double ?? 0.0
+            self.currentPerson.biWeeklyAverage = value?["average_biWeekly"] as? Double ?? 0.0
+            self.currentPerson.currentCalories = value?["currentCalories"] as? Double ?? 0.0
+            //let user = User(username: username)
+            self.FillSummary()
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,8 +62,13 @@ class MainScreenController: UIViewController {
     //Method ment to fill in my values
     func FillSummary()
     {
-    
-
+     _title.text = "Welcome " + currentPerson.name
+     _profileICON.image = UIImage(named: "\(currentPerson.iconID)")
+     _currentCalories.text = String(currentPerson.currentCalories)
+     _currentMeals.text = String("nothing")
+     _dailyAverage.text = String(currentPerson.dailyAverage)
+     _weeklyAverage.text = String(currentPerson.weeklyAverage)
+     _biWeeklyAverage.text = String(currentPerson.biWeeklyAverage)
     }
     
 
