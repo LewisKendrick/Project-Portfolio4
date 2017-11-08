@@ -10,6 +10,8 @@ import UIKit
 
 class AddFoodSecondController: UIViewController {
 
+    var mealDetails: Meals?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -157,7 +158,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="GvM-dG-q9x">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="GvM-dG-q9x">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -555,7 +556,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="RCW-C3-ae9">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="RCW-C3-ae9">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -621,7 +622,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="aSS-nk-RUP">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="aSS-nk-RUP">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -655,31 +656,67 @@
                                 <rect key="frame" x="0.0" y="176" width="375" height="464.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="L7W-fX-oCh" detailTextLabel="AuC-mB-pOO" style="IBUITableViewCellStyleValue1" id="hWp-vg-hRF">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_01" rowHeight="69" id="hWp-vg-hRF" customClass="AddFood_TableViewCell" customModule="LewisKendrick_KeenFit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hWp-vg-hRF" id="9zZ-Fw-OZD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L7W-fX-oCh">
-                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLn-gN-Err">
+                                                    <rect key="frame" x="8" y="8" width="187.5" height="52.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2300 kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdW-1A-bQ0">
+                                                    <rect key="frame" x="195.5" y="-1" width="187.5" height="36.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AuC-mB-pOO">
-                                                    <rect key="frame" x="316" y="12" width="44" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2300 kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8W-Ig-3ED">
+                                                    <rect key="frame" x="195.5" y="35.5" width="150" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oz7-zh-aCO">
+                                                    <rect key="frame" x="345.5" y="35.5" width="29.5" height="33"/>
+                                                    <color key="tintColor" red="0.952044785" green="0.4729120731" blue="0.56077688930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </button>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.99353867769241333" green="0.7391698956489563" blue="0.78261446952819824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="UdW-1A-bQ0" firstAttribute="height" secondItem="JLn-gN-Err" secondAttribute="height" multiplier="0.7" id="3xx-F0-RRB"/>
+                                                <constraint firstItem="UdW-1A-bQ0" firstAttribute="centerY" secondItem="JLn-gN-Err" secondAttribute="centerY" multiplier="0.5" id="4J7-lo-Rq8"/>
+                                                <constraint firstItem="R8W-Ig-3ED" firstAttribute="leading" secondItem="JLn-gN-Err" secondAttribute="trailing" id="5pi-fr-tRy"/>
+                                                <constraint firstItem="JLn-gN-Err" firstAttribute="leading" secondItem="9zZ-Fw-OZD" secondAttribute="leadingMargin" id="7Bm-nj-Vk8"/>
+                                                <constraint firstItem="UdW-1A-bQ0" firstAttribute="leading" secondItem="JLn-gN-Err" secondAttribute="trailing" id="Bbb-qw-omu"/>
+                                                <constraint firstItem="JLn-gN-Err" firstAttribute="top" secondItem="9zZ-Fw-OZD" secondAttribute="topMargin" id="ECe-Fd-t5x"/>
+                                                <constraint firstItem="Oz7-zh-aCO" firstAttribute="leading" secondItem="R8W-Ig-3ED" secondAttribute="trailing" id="F3D-EI-eHM"/>
+                                                <constraint firstAttribute="trailing" secondItem="Oz7-zh-aCO" secondAttribute="trailing" id="SRk-dC-5D4"/>
+                                                <constraint firstItem="UdW-1A-bQ0" firstAttribute="width" secondItem="JLn-gN-Err" secondAttribute="width" id="c20-mQ-6nM"/>
+                                                <constraint firstItem="Oz7-zh-aCO" firstAttribute="top" secondItem="UdW-1A-bQ0" secondAttribute="bottom" id="cCc-8N-2u4"/>
+                                                <constraint firstAttribute="bottom" secondItem="Oz7-zh-aCO" secondAttribute="bottom" id="erh-vw-3te"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="JLn-gN-Err" secondAttribute="bottom" id="gJs-B0-cma"/>
+                                                <constraint firstItem="R8W-Ig-3ED" firstAttribute="width" secondItem="UdW-1A-bQ0" secondAttribute="width" multiplier="0.8" id="iON-6W-AtZ"/>
+                                                <constraint firstItem="R8W-Ig-3ED" firstAttribute="top" secondItem="UdW-1A-bQ0" secondAttribute="bottom" id="m2t-Ja-tpW"/>
+                                                <constraint firstAttribute="bottom" secondItem="R8W-Ig-3ED" secondAttribute="bottom" id="p6I-L7-tgX"/>
+                                                <constraint firstItem="JLn-gN-Err" firstAttribute="width" secondItem="9zZ-Fw-OZD" secondAttribute="width" multiplier="0.5" id="xJL-mq-tQg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="brandName" destination="R8W-Ig-3ED" id="v9N-Hr-0IP"/>
+                                            <outlet property="itemCalories" destination="UdW-1A-bQ0" id="SyD-Ot-Abt"/>
+                                            <outlet property="itemName" destination="JLn-gN-Err" id="5HH-G0-HRV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="roq-bP-3y4" id="4wQ-zj-Rge"/>
+                                    <outlet property="delegate" destination="roq-bP-3y4" id="qxx-qr-pSG"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.99286109209060669" green="0.73931705951690674" blue="0.78500157594680786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -702,10 +739,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SnZ-U9-sci"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="3gw-Tc-2f5" id="APl-kb-Q1k"/>
+                        <segue destination="lA6-bI-I0B" kind="show" identifier="toSecondAdd" id="z6S-rf-ipp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gbz-FS-rfE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1015" y="1316"/>
+            <point key="canvasLocation" x="-1015.2" y="1333.5832083958021"/>
         </scene>
         <!--Entries-->
         <scene sceneID="6VE-73-F5P">
@@ -730,7 +771,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="ig2-VX-jfc">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="ig2-VX-jfc">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -1133,7 +1174,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="llC-kv-8Ao">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="llC-kv-8Ao">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -1226,7 +1267,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="zlp-Gg-NPF">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="zlp-Gg-NPF">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -1621,7 +1662,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="J7u-dG-SXx">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="J7u-dG-SXx">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -1687,7 +1728,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="eNE-iF-1UL">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="eNE-iF-1UL">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -1710,7 +1751,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZFA-c6-HKN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZFA-c6-HKN">
                                 <rect key="frame" x="65" y="169.5" width="244" height="148.5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caQ-um-zXu">
@@ -1853,7 +1894,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="AhG-ua-8o1">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="AhG-ua-8o1">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -2091,7 +2132,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="4wn-Dq-yeV">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="4wn-Dq-yeV">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -2232,7 +2273,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="n5E-LA-mzf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="n5E-LA-mzf">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -2531,7 +2572,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="U2m-tN-7Lz">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="U2m-tN-7Lz">
                                         <rect key="frame" x="5" y="5" width="94" height="90"/>
                                     </imageView>
                                 </subviews>
@@ -2576,7 +2617,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon-1" width="197" height="178"/>
+        <image name="1" width="197" height="178"/>
         <image name="icon_AddFood" width="269" height="372"/>
         <image name="icon_Entrys" width="274" height="409"/>
         <image name="icon_Friends" width="269" height="372"/>

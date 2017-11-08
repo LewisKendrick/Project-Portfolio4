@@ -101,6 +101,7 @@ class MainScreenController: UIViewController {
             // Get user value and set it to the currentPerson object that i have set
             let value = snapshot.value as? NSDictionary
             newMeal.id = value?["id"] as? String ?? ""
+            newMeal.name = value?["item_name"] as? String ?? ""
             newMeal.calories = value?["calories"] as? Double ?? 0.0
             newMeal.carbs = value?["carbs"] as? Double ?? 0.0
             newMeal.cholesterol = value?["cholesterol"] as? Double ?? 0.0
@@ -117,8 +118,6 @@ class MainScreenController: UIViewController {
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-
     }
 
     /*

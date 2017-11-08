@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import Firebase
 
-class AddFoodFirstController: UIViewController {
+class AddFoodFirstController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    //Creating a variable for my results
+    var results = [Meals]()
+    var searchText = "Apples"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        SearchForData(_searchText: searchText)
         // Do any additional setup after loading the view.
     }
 
@@ -21,15 +29,57 @@ class AddFoodFirstController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //Configuring my tableView
+    //-----------------------------------
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return  results.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell_01", for: indexPath) as? AddFood_TableViewCell //I am starting my segue here
+            
+            else
+        {
+            return tableView.dequeueReusableCell(withIdentifier: "cell_01", for: indexPath)
+        }
+        
+        let currentCell = results[indexPath.row]
+        cell.itemName.text = currentCell.name
+        cell.itemCalories.text = String(currentCell.calories!)
+        cell.brandName.text = currentCell.brandName
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        performSegue(withIdentifier: "toSecondAdd", sender: nil)
+    }
+    
+    //-------------------------------------
+    //-------------------------------------
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let indexPath = self.tableView?.indexPathForSelectedRow
+        {
+            let selectedTable = results[indexPath.row]
+            if let dVC: AddFoodSecondController = segue.destination as? AddFoodSecondController
+            {
+                dVC.mealDetails = selectedTable
+            }
+        }
+    }
+    
+    //this is the function used to grab the information from the
+    func SearchForData(_searchText: String)
+    {
+        if _searchText != ""
+        {
+           var DatabaseUrl = "https://api.nutritionix.com/v1_1/search/\(_searchText)?results=0:25&fields=item_name,brand_name,item_id,nf_calories,item_description,nf_total_fat,nf_saturated_fat,,nf_cholesterol,nf_sodium,nf_total_carbohydrate,nf_dietary_fiber,nf_sugars,nf_protein,nf_potassium&appId=b3aa35a2&appKey=78eca08668db866e38e0f0beec9c9692"
+            
+            grabJson(jsonUrl: DatabaseUrl)
+            
+        }
+    }
 
 }

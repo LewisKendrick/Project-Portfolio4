@@ -20,6 +20,8 @@
 		184AFE0D1FB1DF6000B621F4 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AFE0C1FB1DF6000B621F4 /* Meal.swift */; };
 		184AFE0F1FB21E5C00B621F4 /* AddFoodFirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AFE0E1FB21E5C00B621F4 /* AddFoodFirstController.swift */; };
 		184AFE111FB21EBE00B621F4 /* AddFoodSecondController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AFE101FB21EBE00B621F4 /* AddFoodSecondController.swift */; };
+		184AFE131FB2399900B621F4 /* AddFood_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AFE121FB2399900B621F4 /* AddFood_TableViewCell.swift */; };
+		184AFE171FB2A39D00B621F4 /* AddMeal_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AFE161FB2A39D00B621F4 /* AddMeal_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		184AFE0C1FB1DF6000B621F4 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		184AFE0E1FB21E5C00B621F4 /* AddFoodFirstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodFirstController.swift; sourceTree = "<group>"; };
 		184AFE101FB21EBE00B621F4 /* AddFoodSecondController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodSecondController.swift; sourceTree = "<group>"; };
+		184AFE121FB2399900B621F4 /* AddFood_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFood_TableViewCell.swift; sourceTree = "<group>"; };
+		184AFE161FB2A39D00B621F4 /* AddMeal_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeal_Extension.swift; sourceTree = "<group>"; };
 		50B9E4CAF55031FB83F55448 /* Pods-LewisKendrick_KeenFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LewisKendrick_KeenFit.release.xcconfig"; path = "Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit.release.xcconfig"; sourceTree = "<group>"; };
 		5EB07CC23AF0B88E436ED142 /* Pods_LewisKendrick_KeenFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LewisKendrick_KeenFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0DBACFCB6EA0DBA4C85FF09 /* Pods-LewisKendrick_KeenFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LewisKendrick_KeenFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,9 +83,11 @@
 				184590131FA310E600594932 /* Main.storyboard */,
 				184590111FA310E600594932 /* LoginScreen.swift */,
 				184AFE031FB1767400B621F4 /* MainScreenController.swift */,
-				184AFE101FB21EBE00B621F4 /* AddFoodSecondController.swift */,
 				184AFE0E1FB21E5C00B621F4 /* AddFoodFirstController.swift */,
+				184AFE101FB21EBE00B621F4 /* AddFoodSecondController.swift */,
 				184590161FA310E600594932 /* Assets.xcassets */,
+				184AFE161FB2A39D00B621F4 /* AddMeal_Extension.swift */,
+				184AFE121FB2399900B621F4 /* AddFood_TableViewCell.swift */,
 				184AFE051FB18A7A00B621F4 /* Person.swift */,
 				184AFE071FB19CC000B621F4 /* Goal.swift */,
 				184AFE0C1FB1DF6000B621F4 /* Meal.swift */,
@@ -252,6 +258,8 @@
 				184AFE061FB18A7A00B621F4 /* Person.swift in Sources */,
 				184AFE081FB19CC000B621F4 /* Goal.swift in Sources */,
 				184AFE0D1FB1DF6000B621F4 /* Meal.swift in Sources */,
+				184AFE131FB2399900B621F4 /* AddFood_TableViewCell.swift in Sources */,
+				184AFE171FB2A39D00B621F4 /* AddMeal_Extension.swift in Sources */,
 				184AFE041FB1767400B621F4 /* MainScreenController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

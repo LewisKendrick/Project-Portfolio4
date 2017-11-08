@@ -12,6 +12,8 @@ import Firebase
 class Meals
 {
     var id:String?
+    var name: String?
+    var brandName: String?
     var calories: Double?
     var carbs: Double?
     var cholesterol: Double?
@@ -27,6 +29,8 @@ class Meals
     init()
     {
         id = nil
+        name = nil
+        brandName = nil
         calories = nil
         carbs = nil
         cholesterol = nil
@@ -38,5 +42,22 @@ class Meals
         sugars = nil
         servings = nil
         date = nil
+    }
+    init(tId: String?, tName: String?, tBrandName: String?, tCalories: Double?, tCarbs: Double?, tCholesterol: Double?, tDietary:Double?, tFat:Double?, tProtein: Double?, tSaturatedFat:Double, tSodium: Double? , tSugar:Double?, tServings: Double?, tDate: Date?)
+    {
+        id = tId
+        name = tName
+        brandName = tBrandName
+        calories = tCalories
+        carbs = tCarbs
+        cholesterol = tCholesterol
+        dietary = tDietary
+        fat = tFat
+        protein = tProtein
+        saturatedFat = tSaturatedFat
+        sodium = tSodium
+        sugars = tSugar
+        servings = tServings
+        date = tDate
     }
 }
