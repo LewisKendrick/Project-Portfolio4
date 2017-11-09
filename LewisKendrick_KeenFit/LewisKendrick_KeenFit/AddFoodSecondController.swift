@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class AddFoodSecondController: UIViewController {
 
+    var ref: DatabaseReference!
+    
     var mealDetails: Meals?
     
     //outlets
@@ -29,14 +32,28 @@ class AddFoodSecondController: UIViewController {
     
     //Variables
     var stepCounter = 1.0
+    var totalFat = 0.0
+    var saturatedFat = 0.0
+    var calories = 0.0
+    var cholesterol = 0.0
+    var sodium = 0.0
+    var carbs = 0.0
+    var dietary = 0.0
+    var sugars = 0.0
+    var protein = 0.0
+    var servings = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference().child("Meals")
+        
         _Name.text = mealDetails?.name
         _BrandName.text = mealDetails?.brandName
         FillValues()
         // Do any additional setup after loading the view.
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,15 +68,16 @@ class AddFoodSecondController: UIViewController {
     
     func FillValues()
     {
-        let totalFat = (mealDetails?.fat)! * stepCounter
-        let saturatedFat = (mealDetails?.saturatedFat)! * stepCounter
-        let calories = (mealDetails?.calories)! * stepCounter
-        let cholesterol = (mealDetails?.cholesterol)! * stepCounter
-        let sodium = (mealDetails?.sodium)! * stepCounter
-        let carbs = (mealDetails?.carbs)! * stepCounter
-        let dietary = (mealDetails?.dietary)! * stepCounter
-        let sugars = (mealDetails?.sugars)! * stepCounter
-        let protein = (mealDetails?.protein)! * stepCounter
+        totalFat = (mealDetails?.fat)! * stepCounter
+        saturatedFat = (mealDetails?.saturatedFat)! * stepCounter
+        calories = (mealDetails?.calories)! * stepCounter
+        cholesterol = (mealDetails?.cholesterol)! * stepCounter
+        sodium = (mealDetails?.sodium)! * stepCounter
+        carbs = (mealDetails?.carbs)! * stepCounter
+        dietary = (mealDetails?.dietary)! * stepCounter
+        sugars = (mealDetails?.sugars)! * stepCounter
+        protein = (mealDetails?.protein)! * stepCounter
+        servings = stepCounter
         
        _TotalFat.text = String(totalFat)
        _SaturatedFat.text = String(saturatedFat)
@@ -75,8 +93,41 @@ class AddFoodSecondController: UIViewController {
     
     @IBAction func AddMeal(_ sender: UIButton)
     {
+        writeUserData()
         navigationController?.popViewController(animated: true)
+        //add to database
+        
     }
     
-
+    func writeUserData()
+    {
+        //I am getting my date now and breaking it down by minutes hours and seconds
+        let date = Date()
+        let calender = Calendar.current
+        
+        
+        let post = [
+                    "id": (mealDetails?.id)!,
+                    "name": (mealDetails?.name)!,
+                    "brandname": (mealDetails?.brandName)!,
+                    "calories": (mealDetails?.calories)!,
+                    "carbs": (mealDetails?.carbs)!,
+                    "cholesterol": (mealDetails?.cholesterol)!,
+                    "dietary": (mealDetails?.dietary)!,
+                    "fat": (mealDetails?.fat)!,
+                    "protein": (mealDetails?.protein)!,
+                    "saturatedfat": (mealDetails?.saturatedFat)!,
+                    "sodium": (mealDetails?.sodium)!,
+                    "sugars": (mealDetails?.sugars)!,
+                    "servings": servings,
+                    "date": String(describing: date),
+                    ] as [String : Any]
+        
+        ref.child(g_UserID!).child(String(describing: date)).setValue(post)
+        
+//        let childUpdates = ["/\(g_UserID)/\(key)": post,
+//                            "/user-posts/\(userID)/\(key)/": post]
+//        ref.updateChildValues(childUpdates)
+    }
 }
+

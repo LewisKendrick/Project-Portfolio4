@@ -82,6 +82,10 @@ class AddFoodFirstController: UIViewController, UITableViewDelegate, UITableView
         SearchForData(_searchText: searchText)
         tableView.reloadData()
     }
+    @IBAction func DoneButtonPressed(_ sender: UIButton)
+    {
+        navigationController?.popViewController(animated: true)
+    }
     
     //this is the function used to grab the information from the
     func SearchForData(_searchText: String)
@@ -89,7 +93,9 @@ class AddFoodFirstController: UIViewController, UITableViewDelegate, UITableView
         results = []
         if _searchText != ""
         {
+            //this makes sure that the users input was one word
             let newSearchText = _searchText.replacingOccurrences(of: " ", with: "")
+            
            let DatabaseUrl = "https://api.nutritionix.com/v1_1/search/\(newSearchText)?results=0:30&fields=item_name,brand_name,item_id,nf_calories,item_description,nf_total_fat,nf_saturated_fat,,nf_cholesterol,nf_sodium,nf_total_carbohydrate,nf_dietary_fiber,nf_sugars,nf_protein,nf_potassium&appId=b3aa35a2&appKey=78eca08668db866e38e0f0beec9c9692"
             
             grabJson(jsonUrl: DatabaseUrl)
