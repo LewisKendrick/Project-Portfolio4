@@ -9,9 +9,10 @@
 import UIKit
 import Firebase
 
-class AddFoodFirstController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddFoodFirstController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     //Creating a variable for my results
     var results = [Meals]()
@@ -19,7 +20,7 @@ class AddFoodFirstController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchBar.delegate = self
         SearchForData(_searchText: searchText)
         // Do any additional setup after loading the view.
     }
@@ -69,13 +70,27 @@ class AddFoodFirstController: UIViewController, UITableViewDelegate, UITableView
             }
         }
     }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
+        if searchBar.text != ""
+        {
+        searchText = searchBar.text!
+        }
+        
+        SearchForData(_searchText: searchText)
+        tableView.reloadData()
+    }
     
     //this is the function used to grab the information from the
     func SearchForData(_searchText: String)
     {
+        results = []
         if _searchText != ""
         {
-           var DatabaseUrl = "https://api.nutritionix.com/v1_1/search/\(_searchText)?results=0:25&fields=item_name,brand_name,item_id,nf_calories,item_description,nf_total_fat,nf_saturated_fat,,nf_cholesterol,nf_sodium,nf_total_carbohydrate,nf_dietary_fiber,nf_sugars,nf_protein,nf_potassium&appId=b3aa35a2&appKey=78eca08668db866e38e0f0beec9c9692"
+            let newSearchText = _searchText.replacingOccurrences(of: " ", with: "")
+           let DatabaseUrl = "https://api.nutritionix.com/v1_1/search/\(newSearchText)?results=0:30&fields=item_name,brand_name,item_id,nf_calories,item_description,nf_total_fat,nf_saturated_fat,,nf_cholesterol,nf_sodium,nf_total_carbohydrate,nf_dietary_fiber,nf_sugars,nf_protein,nf_potassium&appId=b3aa35a2&appKey=78eca08668db866e38e0f0beec9c9692"
             
             grabJson(jsonUrl: DatabaseUrl)
             
