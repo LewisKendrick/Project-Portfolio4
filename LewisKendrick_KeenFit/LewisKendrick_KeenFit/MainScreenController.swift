@@ -63,6 +63,7 @@ class MainScreenController: UIViewController {
             //at this point I need to check if the user has any meals logged in
             //so I redo the last view steps inside of a method
             
+            self.FillMeals()
             self.FillSummary()
             // ...
         }) { (error) in
@@ -92,28 +93,35 @@ class MainScreenController: UIViewController {
     
     func FillMeals()
     {
+        currentPerson.meals = []
         var newMeal = Meals()
         
         ref = Database.database().reference().child("Meals") //setting my reference to start inside of my users node
         ref.child(g_UserID!).observeSingleEvent(of: .value, with: { (snapshot) in
             
-            print(snapshot.value)
-            // Get user value and set it to the currentPerson object that i have set
-            let value = snapshot.value as? NSDictionary
-            newMeal.id = value?["id"] as? String ?? ""
-            newMeal.name = value?["item_name"] as? String ?? ""
-            newMeal.calories = value?["calories"] as? Double ?? 0.0
-            newMeal.carbs = value?["carbs"] as? Double ?? 0.0
-            newMeal.cholesterol = value?["cholesterol"] as? Double ?? 0.0
-            newMeal.dietary = value?["dietary"] as? Double ?? 0.0
-            newMeal.fat = value?["fat"] as? Double ?? 0.0
-            newMeal.protein = value?["protein"] as? Double ?? 0.0
-            newMeal.saturatedFat = value?["saturatedFat"] as? Double ?? 0.0
-            newMeal.sodium = value?["sodium"] as? Double ?? 0.0
-            newMeal.sugars = value?["sugars"] as? Double ?? 0.0
-            newMeal.servings = value?["servings"] as? Double ?? 0.0
-            newMeal.date = value?["date"] as? Date ?? Date()
-            
+            if let itemDict = snapshot.value as? Dictionary<String, Dictionary<String, Any>>
+            {
+                for (key, value) in itemDict
+                {
+                    // Get user value and set it to the currentPerson object that i have set
+                   // let value = snapshot.value as? NSDictionary
+                    newMeal.id = value["id"] as? String ?? ""
+                    newMeal.name = value["item_name"] as? String ?? ""
+                    newMeal.calories = value["calories"] as? Double ?? 0.0
+                    newMeal.carbs = value["carbs"] as? Double ?? 0.0
+                    newMeal.cholesterol = value["cholesterol"] as? Double ?? 0.0
+                    newMeal.dietary = value["dietary"] as? Double ?? 0.0
+                    newMeal.fat = value["fat"] as? Double ?? 0.0
+                    newMeal.protein = value["protein"] as? Double ?? 0.0
+                    newMeal.saturatedFat = value["saturatedFat"] as? Double ?? 0.0
+                    newMeal.sodium = value["sodium"] as? Double ?? 0.0
+                    newMeal.sugars = value["sugars"] as? Double ?? 0.0
+                    newMeal.servings = value["servings"] as? Double ?? 0.0
+                    newMeal.date = value["date"] as? Date ?? Date()
+                    
+                    self.currentPerson.meals.append(newMeal)
+                }
+            }
             
         }) { (error) in
             print(error.localizedDescription)

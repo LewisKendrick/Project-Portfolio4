@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:LewisKendrick_KeenFit/HistoryController.swift">
+   </FileRef>
+   <FileRef
       location = "group:LewisKendrick_KeenFit.xcodeproj">
    </FileRef>
    <FileRef

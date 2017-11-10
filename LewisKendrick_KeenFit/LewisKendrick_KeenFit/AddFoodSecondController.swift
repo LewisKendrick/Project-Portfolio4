@@ -123,7 +123,7 @@ class AddFoodSecondController: UIViewController {
                     "date": String(describing: date),
                     ] as [String : Any]
         
-        ref.child(g_UserID!).child(String(describing: date)).setValue(post)
+        ref.child(g_UserID!).childByAutoId().setValue(post)
         
 //        let childUpdates = ["/\(g_UserID)/\(key)": post,
 //                            "/user-posts/\(userID)/\(key)/": post]
