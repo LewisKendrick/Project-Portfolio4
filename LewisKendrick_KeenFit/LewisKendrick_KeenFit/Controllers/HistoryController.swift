@@ -12,6 +12,7 @@ import Firebase
 class HistoryController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var topLabel: UILabel!
     
     var results = [Meals]()
     
@@ -25,7 +26,6 @@ class HistoryController: UIViewController, UITableViewDelegate, UITableViewDataS
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     //setting up my table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,6 +52,10 @@ class HistoryController: UIViewController, UITableViewDelegate, UITableViewDataS
         performSegue(withIdentifier: "toAddDisplay", sender: nil)
     }
     
+    @IBAction func DoneButtonPressed(_ sender: UIButton)
+    {
+        navigationController?.popViewController(animated: true)
+    }
     
     //------------------------
     

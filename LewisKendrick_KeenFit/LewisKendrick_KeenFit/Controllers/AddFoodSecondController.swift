@@ -129,5 +129,12 @@ class AddFoodSecondController: UIViewController {
 //                            "/user-posts/\(userID)/\(key)/": post]
 //        ref.updateChildValues(childUpdates)
     }
+
+    @IBAction func DoneButtonPressed(_ sender: UIButton)
+    {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
 }
 

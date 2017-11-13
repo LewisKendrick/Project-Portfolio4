@@ -72,6 +72,11 @@ class MainScreenController: UIViewController {
         
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        FillMeals()
+        FillSummary()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -105,7 +110,7 @@ class MainScreenController: UIViewController {
                 {
                     // Get user value and set it to the currentPerson object that i have set
                    // let value = snapshot.value as? NSDictionary
-                    newMeal.id = value["id"] as? String ?? ""
+                    newMeal.id = value["id"] as? String ?? "failed"
                     newMeal.name = value["name"] as? String ?? "failed"
                     newMeal.brandName = value["brandname"] as? String ?? "failed"
                     newMeal.calories = value["calories"] as? Double ?? 0.0
@@ -114,13 +119,14 @@ class MainScreenController: UIViewController {
                     newMeal.dietary = value["dietary"] as? Double ?? 0.0
                     newMeal.fat = value["fat"] as? Double ?? 0.0
                     newMeal.protein = value["protein"] as? Double ?? 0.0
-                    newMeal.saturatedFat = value["saturatedFat"] as? Double ?? 0.0
+                    newMeal.saturatedFat = value["saturatedfat"] as? Double ?? 0.0
                     newMeal.sodium = value["sodium"] as? Double ?? 0.0
                     newMeal.sugars = value["sugars"] as? Double ?? 0.0
                     newMeal.servings = value["servings"] as? Double ?? 0.0
                     newMeal.date = value["date"] as? Date ?? Date()
                     
                     self.currentPerson.meals.append(newMeal)
+                    newMeal = Meals()
                 }
             }
             
