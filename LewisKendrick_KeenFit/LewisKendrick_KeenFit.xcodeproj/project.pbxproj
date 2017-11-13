@@ -22,6 +22,8 @@
 		184AFE111FB21EBE00B621F4 /* AddFoodSecondController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AFE101FB21EBE00B621F4 /* AddFoodSecondController.swift */; };
 		184AFE131FB2399900B621F4 /* AddFood_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AFE121FB2399900B621F4 /* AddFood_TableViewCell.swift */; };
 		184AFE171FB2A39D00B621F4 /* AddMeal_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AFE161FB2A39D00B621F4 /* AddMeal_Extension.swift */; };
+		18BBD2FE1FB949630021BE38 /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD2FD1FB949630021BE38 /* HistoryController.swift */; };
+		18BBD3011FB960320021BE38 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBD3001FB960320021BE38 /* HistoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		184AFE101FB21EBE00B621F4 /* AddFoodSecondController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodSecondController.swift; sourceTree = "<group>"; };
 		184AFE121FB2399900B621F4 /* AddFood_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFood_TableViewCell.swift; sourceTree = "<group>"; };
 		184AFE161FB2A39D00B621F4 /* AddMeal_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeal_Extension.swift; sourceTree = "<group>"; };
+		18BBD2FD1FB949630021BE38 /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
+		18BBD3001FB960320021BE38 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		50B9E4CAF55031FB83F55448 /* Pods-LewisKendrick_KeenFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LewisKendrick_KeenFit.release.xcconfig"; path = "Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit.release.xcconfig"; sourceTree = "<group>"; };
 		5EB07CC23AF0B88E436ED142 /* Pods_LewisKendrick_KeenFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LewisKendrick_KeenFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0DBACFCB6EA0DBA4C85FF09 /* Pods-LewisKendrick_KeenFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LewisKendrick_KeenFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LewisKendrick_KeenFit/Pods-LewisKendrick_KeenFit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,23 +83,49 @@
 		1845900E1FA310E600594932 /* LewisKendrick_KeenFit */ = {
 			isa = PBXGroup;
 			children = (
+				18BBD3031FB96F790021BE38 /* Controllers */,
+				18BBD3021FB960C00021BE38 /* Classes */,
+				18BBD2FF1FB953E10021BE38 /* cells */,
 				1845900F1FA310E600594932 /* AppDelegate.swift */,
 				184590131FA310E600594932 /* Main.storyboard */,
-				184590111FA310E600594932 /* LoginScreen.swift */,
-				184AFE031FB1767400B621F4 /* MainScreenController.swift */,
-				184AFE0E1FB21E5C00B621F4 /* AddFoodFirstController.swift */,
-				184AFE101FB21EBE00B621F4 /* AddFoodSecondController.swift */,
 				184590161FA310E600594932 /* Assets.xcassets */,
-				184AFE161FB2A39D00B621F4 /* AddMeal_Extension.swift */,
-				184AFE121FB2399900B621F4 /* AddFood_TableViewCell.swift */,
-				184AFE051FB18A7A00B621F4 /* Person.swift */,
-				184AFE071FB19CC000B621F4 /* Goal.swift */,
-				184AFE0C1FB1DF6000B621F4 /* Meal.swift */,
 				184590181FA310E600594932 /* LaunchScreen.storyboard */,
 				184AFE0A1FB1B4D200B621F4 /* GoogleService-Info.plist */,
 				1845901B1FA310E600594932 /* Info.plist */,
 			);
 			path = LewisKendrick_KeenFit;
+			sourceTree = "<group>";
+		};
+		18BBD2FF1FB953E10021BE38 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				18BBD3001FB960320021BE38 /* HistoryCell.swift */,
+				184AFE121FB2399900B621F4 /* AddFood_TableViewCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		18BBD3021FB960C00021BE38 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				184AFE051FB18A7A00B621F4 /* Person.swift */,
+				184AFE071FB19CC000B621F4 /* Goal.swift */,
+				184AFE0C1FB1DF6000B621F4 /* Meal.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		18BBD3031FB96F790021BE38 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				184590111FA310E600594932 /* LoginScreen.swift */,
+				184AFE031FB1767400B621F4 /* MainScreenController.swift */,
+				184AFE161FB2A39D00B621F4 /* AddMeal_Extension.swift */,
+				184AFE0E1FB21E5C00B621F4 /* AddFoodFirstController.swift */,
+				184AFE101FB21EBE00B621F4 /* AddFoodSecondController.swift */,
+				18BBD2FD1FB949630021BE38 /* HistoryController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		442FD7334E7EBEC5F8EA4AA1 /* Frameworks */ = {
@@ -257,8 +287,10 @@
 				184590101FA310E600594932 /* AppDelegate.swift in Sources */,
 				184AFE061FB18A7A00B621F4 /* Person.swift in Sources */,
 				184AFE081FB19CC000B621F4 /* Goal.swift in Sources */,
+				18BBD3011FB960320021BE38 /* HistoryCell.swift in Sources */,
 				184AFE0D1FB1DF6000B621F4 /* Meal.swift in Sources */,
 				184AFE131FB2399900B621F4 /* AddFood_TableViewCell.swift in Sources */,
+				18BBD2FE1FB949630021BE38 /* HistoryController.swift in Sources */,
 				184AFE171FB2A39D00B621F4 /* AddMeal_Extension.swift in Sources */,
 				184AFE041FB1767400B621F4 /* MainScreenController.swift in Sources */,
 			);

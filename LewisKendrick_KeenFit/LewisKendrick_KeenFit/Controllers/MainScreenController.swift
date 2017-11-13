@@ -106,7 +106,8 @@ class MainScreenController: UIViewController {
                     // Get user value and set it to the currentPerson object that i have set
                    // let value = snapshot.value as? NSDictionary
                     newMeal.id = value["id"] as? String ?? ""
-                    newMeal.name = value["item_name"] as? String ?? ""
+                    newMeal.name = value["name"] as? String ?? "failed"
+                    newMeal.brandName = value["brandname"] as? String ?? "failed"
                     newMeal.calories = value["calories"] as? Double ?? 0.0
                     newMeal.carbs = value["carbs"] as? Double ?? 0.0
                     newMeal.cholesterol = value["cholesterol"] as? Double ?? 0.0
@@ -126,6 +127,19 @@ class MainScreenController: UIViewController {
         }) { (error) in
             print(error.localizedDescription)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toHistory"{
+            if let hVC: HistoryController = segue.destination as? HistoryController
+            {
+                hVC.results = currentPerson.meals as! [Meals]
+            }
+            
+        }
+        //else if segue.identifier = "clubSegue" {
+         
+        //}
     }
 
     /*
