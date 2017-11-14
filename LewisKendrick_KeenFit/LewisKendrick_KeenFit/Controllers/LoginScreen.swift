@@ -12,7 +12,7 @@ import UIKit
 import Firebase
 
 var g_UserID:String? //using a global uid to help me search through my database
-
+var g_pictureID = 0
 class LoginScreenContoller: UIViewController {
     
     @IBOutlet weak var txtEmail: UITextField!
@@ -59,7 +59,7 @@ class LoginScreenContoller: UIViewController {
             {
                 g_UserID = u.uid
                 //user is found go to login screen
-                self.performSegue(withIdentifier: "toMainScreen", sender: self)
+                self.performSegue(withIdentifier: "toSignUp", sender: self)
             }
             else
             {
@@ -70,7 +70,7 @@ class LoginScreenContoller: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        
+     
     }
 
 

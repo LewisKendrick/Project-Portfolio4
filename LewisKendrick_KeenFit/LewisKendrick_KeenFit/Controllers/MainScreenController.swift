@@ -29,6 +29,36 @@ class MainScreenController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        GrabFirebaseData()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        GrabFirebaseData()
+        //FillMeals()
+        //FillSummary()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //Method ment to fill in my values
+    func FillSummary()
+    {
+     _title.text = "Welcome " + currentPerson.name
+     _profileICON.image = UIImage(named: "\(currentPerson.iconID)")
+     _currentCalories.text = String(currentPerson.currentCalories)
+     _goalTotal.text = "\(currentPerson.goal.total_Calories!)" //force unwrap to get right of the optional word
+     _currentMeals.text = String("nothing")
+     _dailyAverage.text = String(currentPerson.dailyAverage)
+     _weeklyAverage.text = String(currentPerson.weeklyAverage)
+     _biWeeklyAverage.text = String(currentPerson.biWeeklyAverage)
+    }
+    
+    func GrabFirebaseData()
+    {
         ref = Database.database().reference().child("Users") //setting my reference to start inside of my users node
         ref.child(g_UserID!).observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -62,6 +92,7 @@ class MainScreenController: UIViewController {
             
             //at this point I need to check if the user has any meals logged in
             //so I redo the last view steps inside of a method
+            g_pictureID = self.currentPerson.iconID
             
             self.FillMeals()
             self.FillSummary()
@@ -70,30 +101,6 @@ class MainScreenController: UIViewController {
             print(error.localizedDescription)
         }
         
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        FillMeals()
-        FillSummary()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //Method ment to fill in my values
-    func FillSummary()
-    {
-     _title.text = "Welcome " + currentPerson.name
-     _profileICON.image = UIImage(named: "\(currentPerson.iconID)")
-     _currentCalories.text = String(currentPerson.currentCalories)
-     _goalTotal.text = "\(currentPerson.goal.total_Calories!)" //force unwrap to get right of the optional word
-     _currentMeals.text = String("nothing")
-     _dailyAverage.text = String(currentPerson.dailyAverage)
-     _weeklyAverage.text = String(currentPerson.weeklyAverage)
-     _biWeeklyAverage.text = String(currentPerson.biWeeklyAverage)
     }
     
     func FillMeals()
@@ -126,7 +133,7 @@ class MainScreenController: UIViewController {
                     newMeal.date = value["date"] as? Date ?? Date()
                     
                     self.currentPerson.meals.append(newMeal)
-                    newMeal = Meals()
+                    newMeal = Meals() //added this because I kept getting duplicates
                 }
             }
             
@@ -136,16 +143,21 @@ class MainScreenController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toHistory"{
+        if segue.identifier == "toHistory"
+        {
             if let hVC: HistoryController = segue.destination as? HistoryController
             {
                 hVC.results = currentPerson.meals as! [Meals]
             }
             
         }
-        //else if segue.identifier = "clubSegue" {
-         
-        //}
+        else if segue.identifier == "toGoals"
+        {
+            if let gVC: GoalsController = segue.destination as? GoalsController
+            {
+                gVC.currentPerson = currentPerson
+            }
+        }
     }
 
     /*
