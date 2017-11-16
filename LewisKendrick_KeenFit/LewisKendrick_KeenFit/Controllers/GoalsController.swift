@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class GoalsController: UIViewController {
+class GoalsController: UIViewController, UITextFieldDelegate {
 
     var ref: DatabaseReference!
     
@@ -149,15 +149,31 @@ class GoalsController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool)
+    {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        
+        UIView.beginAnimations("moveTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
     }
-    */
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        moveTextField(textField: textField, moveDistance: -220, up: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        moveTextField(textField: textField, moveDistance: -220, up: false)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 
 }

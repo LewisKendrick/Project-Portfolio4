@@ -12,7 +12,7 @@
 import UIKit
 import Firebase
 
-class SignUpController: UIViewController {
+class SignUpController: UIViewController ,UITextFieldDelegate {
 
     var ref: DatabaseReference!
     
@@ -59,11 +59,6 @@ class SignUpController: UIViewController {
         
         present(alertController, animated: true, completion: nil)
        }
-        
-        if created == true
-        {
-            self.performSegue(withIdentifier: "toHome", sender: self)
-        }
    
     }
     
@@ -162,9 +157,40 @@ class SignUpController: UIViewController {
             {
                 self.created = false
             }
+            
+            if self.created == true
+            {
+                self.performSegue(withIdentifier: "toHome", sender: self)
+            }
         }
     }
     
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool)
+    {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        
+        UIView.beginAnimations("moveTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        moveTextField(textField: textField, moveDistance: -250, up: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        moveTextField(textField: textField, moveDistance: -250, up: false)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 
 
 }

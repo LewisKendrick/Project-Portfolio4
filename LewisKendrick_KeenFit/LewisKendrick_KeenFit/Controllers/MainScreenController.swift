@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class MainScreenController: UIViewController {
+class MainScreenController: UIViewController, UITextFieldDelegate {
    
     var ref: DatabaseReference!
     
@@ -22,6 +22,7 @@ class MainScreenController: UIViewController {
     @IBOutlet weak var _dailyAverage: UILabel!
     @IBOutlet weak var _weeklyAverage: UILabel!
     @IBOutlet weak var _biWeeklyAverage: UILabel!
+    @IBOutlet weak var _QuickSearch: UITextField!
     /* This is the end of my Outlets */
     
     var currentPerson = Person()
@@ -48,14 +49,14 @@ class MainScreenController: UIViewController {
     //Method ment to fill in my values
     func FillSummary()
     {
-     _title.text = "Welcome " + currentPerson.name
+     _title.text = "Welcome \n" + currentPerson.name
      _profileICON.image = UIImage(named: "\(currentPerson.iconID)")
-        _currentCalories.text = String(format: "%.1f", currentPerson.getCurrentCalories)
-     _goalTotal.text = "\(currentPerson.goal.total_Calories!)" //force unwrap to get right of the optional word
+        _currentCalories.text = String(format: "%.1f", currentPerson.currentCalories) + " kcal"
+     _goalTotal.text = "\(currentPerson.goal.total_Calories!) kcal" //force unwrap to get right of the optional word
      _currentMeals.text = String(currentPerson.getMealCount)
-     _dailyAverage.text = String(format: "%.1f", currentPerson.getDailyAverage)
-     _weeklyAverage.text = String(format: "%.1f", currentPerson.weeklyAverage)
-     _biWeeklyAverage.text = String(format: "%.1f", currentPerson.biWeeklyAverage)
+     _dailyAverage.text = String(format: "%.1f", currentPerson.getDailyAverage) + " /kcal"
+     _weeklyAverage.text = String(format: "%.1f", currentPerson.getWeeklyAverage) + " /kcal"
+     _biWeeklyAverage.text = String(format: "%.1f", currentPerson.getBiWeeklyAverage) + " /kcal"
     }
     
     func GrabFirebaseData()
@@ -95,7 +96,7 @@ class MainScreenController: UIViewController {
             //so I redo the last view steps inside of a method
             g_pictureID = self.currentPerson.iconID
             self.FillMeals()
-            //self.FillSummary()
+            self.FillSummary()
             // ...
         }) { (error) in
             print(error.localizedDescription)
@@ -156,7 +157,27 @@ class MainScreenController: UIViewController {
     //-----------------------------------------------------------------
     //-----------------------------------------------------------------
     
+    @IBAction func LogOutSelected(_ sender: UIButton)
+    {
+        g_CurrentPerson = Person()
+        g_UserID = ""
+        g_pictureID = 1
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func QuickSearchPressed(_ sender: UIButton)
+    {
+        if _QuickSearch.text?.isEmpty == false
+        {
+            performSegue(withIdentifier: "toQuickAdd", sender: nil)
+        }
+    }
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        g_CurrentPerson = currentPerson
         if segue.identifier == "toHistory"
         {
             if let hVC: HistoryController = segue.destination as? HistoryController
@@ -179,8 +200,46 @@ class MainScreenController: UIViewController {
                 eVC.thePerson = currentPerson
             }
         }
+        
+        else if segue.identifier == "toAddFoodOne"
+        {
+            g_CurrentPerson = currentPerson
+        }
+        else if segue.identifier == "toQuickAdd"
+        {
+            g_CurrentPerson = currentPerson
+            if let aVC: AddFoodFirstController = segue.destination as? AddFoodFirstController
+            {
+                aVC.searchText = _QuickSearch.text!
+            }
+        }
     }
 
-
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool)
+    {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        
+        UIView.beginAnimations("moveTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        moveTextField(textField: textField, moveDistance: -250, up: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        moveTextField(textField: textField, moveDistance: -250, up: false)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 
 }

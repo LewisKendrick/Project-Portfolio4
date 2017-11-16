@@ -15,7 +15,7 @@ var g_UserID:String? //using a global uid to help me search through my database
 var g_pictureID = 1
 var g_CurrentPerson = Person()
 
-class LoginScreenContoller: UIViewController {
+class LoginScreenContoller: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -60,9 +60,34 @@ class LoginScreenContoller: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-     
+       txtPassword.text = ""
     }
-
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool)
+    {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        
+        UIView.beginAnimations("moveTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        moveTextField(textField: textField, moveDistance: -250, up: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        moveTextField(textField: textField, moveDistance: -250, up: false)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 
 }
 

@@ -55,6 +55,8 @@ class AddFoodSecondController: UIViewController {
         
         _Name.text = mealDetails?.name
         _BrandName.text = mealDetails?.brandName
+        
+        stepCounter = (mealDetails?.servings)!
         FillValues()
         // Do any additional setup after loading the view.
     }
@@ -111,8 +113,6 @@ class AddFoodSecondController: UIViewController {
     {
         //I am getting my date now and breaking it down by minutes hours and seconds
         let date = Date()
-        let calender = Calendar.current
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let currentDay = dateFormatter.string(from: date)
@@ -121,15 +121,15 @@ class AddFoodSecondController: UIViewController {
                     "id": (mealDetails?.id)!,
                     "name": (mealDetails?.name)!,
                     "brandname": (mealDetails?.brandName)!,
-                    "calories": (mealDetails?.calories)!,
-                    "carbs": (mealDetails?.carbs)!,
-                    "cholesterol": (mealDetails?.cholesterol)!,
-                    "dietary": (mealDetails?.dietary)!,
-                    "fat": (mealDetails?.fat)!,
-                    "protein": (mealDetails?.protein)!,
-                    "saturatedfat": (mealDetails?.saturatedFat)!,
-                    "sodium": (mealDetails?.sodium)!,
-                    "sugars": (mealDetails?.sugars)!,
+                    "calories": (calories),
+                    "carbs": (carbs),
+                    "cholesterol": (cholesterol),
+                    "dietary": (dietary),
+                    "fat": (totalFat),
+                    "protein": (protein),
+                    "saturatedfat": (saturatedFat),
+                    "sodium": (sodium),
+                    "sugars": (sugars),
                     "servings": servings,
                     "date": String(currentDay),
                     ] as [String : Any]
@@ -137,7 +137,6 @@ class AddFoodSecondController: UIViewController {
         ref.child(g_UserID!).childByAutoId().setValue(post)
 
         userRef.child(g_UserID!).updateChildValues(["current_Calories": totalCalories])
-        
         
 //        let childUpdates = ["/\(g_UserID)/\(key)": post,
 //                            "/user-posts/\(userID)/\(key)/": post]

@@ -119,7 +119,7 @@ class Person
         theDate = dateFormatter.date(from: currentDayString)! //making new format a date
         
         var total = 0.0
-        var numberOfItems = 1.0
+        var numberOfItems = 0.0
         if meals.isEmpty == true
         {
             return total
@@ -140,11 +140,59 @@ class Person
     
     var getWeeklyAverage: Double
     {
-        return 1.0
+        var theDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let currentDayString = dateFormatter.string(from: theDate)  //changing the format of my date
+        theDate = dateFormatter.date(from: currentDayString)! //making new format a date
+        
+        var total = 0.0
+        var numberOfItems = 0.0
+        if meals.isEmpty == true
+        {
+            return total
+        }
+        else
+        {
+            let aWeek: Double = 60 * 60 * 24 * 7
+            for meal in meals
+            {
+                if (meal?.date)! <= theDate && (meal?.date)! >= theDate.addingTimeInterval(-(Double(aWeek)))
+                {
+                    total += (meal?.calories)!
+                    numberOfItems += 1
+                }
+            }
+            return (total/numberOfItems)
+        }
     }
     var getBiWeeklyAverage: Double
     {
-        return 1.0
+        var theDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let currentDayString = dateFormatter.string(from: theDate)  //changing the format of my date
+        theDate = dateFormatter.date(from: currentDayString)! //making new format a date
+        
+        var total = 0.0
+        var numberOfItems = 0.0
+        if meals.isEmpty == true
+        {
+            return total
+        }
+        else
+        {
+            let twoWeeks: Double = 60 * 60 * 24 * 14
+            for meal in meals
+            {
+                if (meal?.date)! <= theDate && (meal?.date)! >= theDate.addingTimeInterval(-(Double(twoWeeks)))
+                {
+                    total += (meal?.calories)!
+                    numberOfItems += 1
+                }
+            }
+            return (total/numberOfItems)
+        }
     }
     
     
