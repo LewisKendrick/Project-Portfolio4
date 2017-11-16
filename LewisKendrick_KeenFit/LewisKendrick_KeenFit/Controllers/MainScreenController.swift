@@ -30,13 +30,14 @@ class MainScreenController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         GrabFirebaseData()
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         GrabFirebaseData()
         //FillMeals()
         //FillSummary()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,12 +50,12 @@ class MainScreenController: UIViewController {
     {
      _title.text = "Welcome " + currentPerson.name
      _profileICON.image = UIImage(named: "\(currentPerson.iconID)")
-     _currentCalories.text = String(currentPerson.currentCalories)
+        _currentCalories.text = String(format: "%.1f", currentPerson.getCurrentCalories)
      _goalTotal.text = "\(currentPerson.goal.total_Calories!)" //force unwrap to get right of the optional word
-     _currentMeals.text = String("nothing")
-     _dailyAverage.text = String(currentPerson.dailyAverage)
-     _weeklyAverage.text = String(currentPerson.weeklyAverage)
-     _biWeeklyAverage.text = String(currentPerson.biWeeklyAverage)
+     _currentMeals.text = String(currentPerson.getMealCount)
+     _dailyAverage.text = String(format: "%.1f", currentPerson.getDailyAverage)
+     _weeklyAverage.text = String(format: "%.1f", currentPerson.weeklyAverage)
+     _biWeeklyAverage.text = String(format: "%.1f", currentPerson.biWeeklyAverage)
     }
     
     func GrabFirebaseData()
@@ -67,13 +68,13 @@ class MainScreenController: UIViewController {
             let value = snapshot.value as? NSDictionary
             self.currentPerson.userID = g_UserID!
             self.currentPerson.name = value?["name"] as? String ?? ""
-            self.currentPerson.iconID = value?["id_picture"] as? Int ?? 0
+            self.currentPerson.iconID = value?["id_picture"] as? Int ?? 1
             self.currentPerson.groupName = value?["g_name"] as? String ?? ""
             self.currentPerson.weight = value?["weight"] as? Double ?? 0.0
             self.currentPerson.dailyAverage = value?["average_daily"] as? Double ?? 0.0
             self.currentPerson.weeklyAverage = value?["average_weekly"] as? Double ?? 0.0
             self.currentPerson.biWeeklyAverage = value?["average_biWeekly"] as? Double ?? 0.0
-            self.currentPerson.currentCalories = value?["currentCalories"] as? Double ?? 0.0
+            self.currentPerson.currentCalories = value?["current_Calories"] as? Double ?? 0.0
             
             //I have to now set a way for me to grab the information inside of goals
             var userGoals = Goal()
@@ -93,13 +94,13 @@ class MainScreenController: UIViewController {
             //at this point I need to check if the user has any meals logged in
             //so I redo the last view steps inside of a method
             g_pictureID = self.currentPerson.iconID
-            
             self.FillMeals()
-            self.FillSummary()
+            //self.FillSummary()
             // ...
         }) { (error) in
             print(error.localizedDescription)
         }
+        
         
     }
     
@@ -130,17 +131,30 @@ class MainScreenController: UIViewController {
                     newMeal.sodium = value["sodium"] as? Double ?? 0.0
                     newMeal.sugars = value["sugars"] as? Double ?? 0.0
                     newMeal.servings = value["servings"] as? Double ?? 0.0
-                    newMeal.date = value["date"] as? Date ?? Date()
+                    //now i must grab the date and convert it
+                    let stringDate = value["date"] as? String ?? ""
                     
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    let convertedDate = dateFormatter.date(from: stringDate)
+                    //setting the date into my class variable
+                    newMeal.date = convertedDate
                     self.currentPerson.meals.append(newMeal)
                     newMeal = Meals() //added this because I kept getting duplicates
+    
                 }
+                 g_CurrentPerson = self.currentPerson
+                self.FillSummary()
             }
             
         }) { (error) in
             print(error.localizedDescription)
         }
     }
+    
+    
+    //-----------------------------------------------------------------
+    //-----------------------------------------------------------------
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toHistory"
@@ -158,16 +172,15 @@ class MainScreenController: UIViewController {
                 gVC.currentPerson = currentPerson
             }
         }
+        else if segue.identifier == "toEntries"
+        {
+            if let eVC: EntriesController = segue.destination as? EntriesController
+            {
+                eVC.thePerson = currentPerson
+            }
+        }
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

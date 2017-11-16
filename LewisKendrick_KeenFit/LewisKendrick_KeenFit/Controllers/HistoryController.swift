@@ -11,6 +11,7 @@ import Firebase
 
 class HistoryController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var _UserIcon: UIImageView!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var topLabel: UILabel!
     
@@ -18,7 +19,7 @@ class HistoryController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        _UserIcon.image = UIImage(named: "\(g_pictureID)")
         // Do any additional setup after loading the view.
     }
     

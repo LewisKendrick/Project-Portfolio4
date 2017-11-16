@@ -12,7 +12,9 @@ import UIKit
 import Firebase
 
 var g_UserID:String? //using a global uid to help me search through my database
-var g_pictureID = 0
+var g_pictureID = 1
+var g_CurrentPerson = Person()
+
 class LoginScreenContoller: UIViewController {
     
     @IBOutlet weak var txtEmail: UITextField!
@@ -46,26 +48,14 @@ class LoginScreenContoller: UIViewController {
             }
             else
             {
-                //check errr and show message            }
+               
             }
         }
     }
     
     @IBAction func SignUpButton(_ sender: Any)
     {
-        Auth.auth().createUser(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
-            
-            if let u = user
-            {
-                g_UserID = u.uid
-                //user is found go to login screen
                 self.performSegue(withIdentifier: "toSignUp", sender: self)
-            }
-            else
-            {
-                //show error message
-            }
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

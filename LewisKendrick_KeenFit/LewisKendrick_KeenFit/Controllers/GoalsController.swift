@@ -28,6 +28,7 @@ class GoalsController: UIViewController {
     var proteinVar = 0.0
     
     //setting up my outlets
+    @IBOutlet weak var _UserIcon: UIImageView!
     @IBOutlet weak var _CurrentWeight: UITextField!
     @IBOutlet weak var _TotalFat: UITextField!
     @IBOutlet weak var _SaturatedFat: UITextField!
@@ -42,6 +43,7 @@ class GoalsController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        _UserIcon.image = UIImage(named: "\(g_pictureID)")
         FillValues()
         ref = Database.database().reference().child("Users")
     }
@@ -49,15 +51,6 @@ class GoalsController: UIViewController {
     @IBAction func DoneButtonPressed(_ sender: Any)
     {
         ValidateEntries() //call to make sure all my fields are correct
-        
-        let userPost = ["name": "testUser",
-                        "id_picture": 4,
-                        "g_name": "nothing",
-                        "weight": weightVar,
-                        "average_daily": 3000.0,
-                        "average_weekly": 3200.0,
-                        "average_biWeekly": 3000.0,
-                        "current_Calories": 2100.0] as [String : Any]
         
         let post = ["total_calories": caloriesVar,
                     "total_carbs": carbsVar,
@@ -69,7 +62,7 @@ class GoalsController: UIViewController {
                     "total_sodium": sodiumVar,
                     "total_sugars": sugarsVar]
         
-        ref.child(g_UserID!).setValue(userPost)
+        ref.child(g_UserID!).updateChildValues(["weight": weightVar])
         ref.child(g_UserID!).child("goals").setValue(post)
         
         /*let childUpdates = ["/Users/\(key)": post,

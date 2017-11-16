@@ -12,6 +12,7 @@ import Firebase
 class AddFoodSecondController: UIViewController {
 
     var ref: DatabaseReference!
+    var userRef: DatabaseReference!
     
     var mealDetails: Meals?
     
@@ -28,6 +29,8 @@ class AddFoodSecondController: UIViewController {
     @IBOutlet weak var _Servings: UILabel!
     @IBOutlet weak var _Name: UILabel!
     @IBOutlet weak var _BrandName: UILabel!
+    @IBOutlet weak var _UserIcon: UIImageView!
+    @IBOutlet weak var _TotalCalories: UILabel!
     
     
     //Variables
@@ -42,11 +45,13 @@ class AddFoodSecondController: UIViewController {
     var sugars = 0.0
     var protein = 0.0
     var servings = 0.0
+    var totalCalories = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        _UserIcon.image = UIImage(named: "\(g_pictureID)")
         ref = Database.database().reference().child("Meals")
+        userRef = Database.database().reference().child("Users")
         
         _Name.text = mealDetails?.name
         _BrandName.text = mealDetails?.brandName
@@ -79,6 +84,8 @@ class AddFoodSecondController: UIViewController {
         protein = (mealDetails?.protein)! * stepCounter
         servings = stepCounter
         
+        totalCalories = calories + g_CurrentPerson.getCurrentCalories
+        
        _TotalFat.text = String(totalFat)
        _SaturatedFat.text = String(saturatedFat)
        _Calories.text = String(calories)
@@ -89,6 +96,7 @@ class AddFoodSecondController: UIViewController {
        _Sugars.text = String(sugars)
        _Protein.text = String(protein)
        _Servings.text = String(stepCounter)
+        _TotalCalories.text = "Total Calories:\n\(totalCalories)"
     }
     
     @IBAction func AddMeal(_ sender: UIButton)
@@ -105,6 +113,9 @@ class AddFoodSecondController: UIViewController {
         let date = Date()
         let calender = Calendar.current
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let currentDay = dateFormatter.string(from: date)
         
         let post = [
                     "id": (mealDetails?.id)!,
@@ -120,10 +131,13 @@ class AddFoodSecondController: UIViewController {
                     "sodium": (mealDetails?.sodium)!,
                     "sugars": (mealDetails?.sugars)!,
                     "servings": servings,
-                    "date": String(describing: date),
+                    "date": String(currentDay),
                     ] as [String : Any]
         
         ref.child(g_UserID!).childByAutoId().setValue(post)
+
+        userRef.child(g_UserID!).updateChildValues(["current_Calories": totalCalories])
+        
         
 //        let childUpdates = ["/\(g_UserID)/\(key)": post,
 //                            "/user-posts/\(userID)/\(key)/": post]

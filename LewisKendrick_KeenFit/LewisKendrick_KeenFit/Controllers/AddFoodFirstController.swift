@@ -13,6 +13,7 @@ class AddFoodFirstController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var userIcon: UIImageView!
     
     //Creating a variable for my results
     var results = [Meals]()
@@ -20,6 +21,8 @@ class AddFoodFirstController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userIcon.image = UIImage(named: "\(g_pictureID)")
         searchBar.delegate = self
         SearchForData(_searchText: searchText)
         // Do any additional setup after loading the view.
